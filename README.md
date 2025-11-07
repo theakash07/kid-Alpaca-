@@ -24,4 +24,4 @@ To view or modify the website locally, follow these steps:
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/theakash07/Kunzang.git
+   https://theakash07.github.io/kid-Alpaca-/
