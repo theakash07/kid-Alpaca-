@@ -6,7 +6,7 @@ Welcome to the **Alpaca** project! This repository contains the files for the **
 
 You can view the website by clicking the link below:
 
-[Visit Alpaca Website](https://theakash07.github.io/Kunzang/)
+[Visit Alpaca Website](https://theakash07.github.io/kid-Alpaca-/)
 
 ## Description
 
