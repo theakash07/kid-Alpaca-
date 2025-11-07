@@ -10,16 +10,32 @@
 	font-family: digit;
 	src: url('digital-7_mono.ttf') format("truetype");
 }
+
+/* 🌄 Full-page background image */
+body {
+  background: url('pexels-nicolas-van-der-heyden-1239294.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* Optional dark overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
 </style>
+
 <link href="css/default.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/garden.js"></script>
 <script type="text/javascript" src="js/functions.js"></script>
-
 </head>
 
 <body>
-
 <div id="mainDiv">
 	<div id="content">
 		<div id="code">
@@ -28,7 +44,7 @@
 			<span class="space"/><span class="comments">*/</span><br />
 			Hey Girl !<br />
 			Do you remember the day we first met?<br />
-			<span class="comments">// The TechEvent. </span><br />
+			<span class="comments">// The A3 Block. </span><br />
 			Since that day a spark begun;<br />
 			<span class="comments">// Your face Your Voice Your Words.</span><br />
 			Your everything got imprinted in my heart;<br />
@@ -48,7 +64,7 @@
 			Now If you want to hug me you can touch the heart below<br />
 			<br>
 			<span id="heartspan">
-			<a href="IMG_20241201_175110_241.jpg"><i class="fas fa-heart" id="icon"></i></a>
+			<a href="pexels-jennifer-murray-402778-1067194.jpg"><i class="fas fa-heart" id="icon"></i></a>
 			</span>
 		</div>
 		<div id="loveHeart">
@@ -70,17 +86,16 @@
 <script type="text/javascript">
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 55;
+
+// 💖 Start timer from yesterday 16:30 local time
 var together = new Date();
-together.setFullYear(2024, 10, 9);
-together.setHours(16);
-together.setMinutes(30);
-together.setSeconds(0);
-together.setMilliseconds(0);
+together.setDate(together.getDate() - 1);
+together.setHours(16, 30, 0, 0);
 
 if (!document.createElement('canvas').getContext) {
 	var msg = document.createElement("div");
 	msg.id = "errorMsg";
-	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
 	document.body.appendChild(msg);
 	$("#code").css("display", "none")
 	$("#copyright").css("position", "absolute");
@@ -100,5 +115,51 @@ if (!document.createElement('canvas').getContext) {
 	$("#code").typewriter();
 }
 </script>
+
+<!-- 🌸 Landing Page Section -->
+<div id="landing">
+  <h1>Hii! 🦙 Alpaca 👩🏻‍❤️‍🧑🏻 </h1>
+</div>
+
+<style>
+  #landing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-size: 3em;
+    font-family: "Poppins", sans-serif;
+    color: #ff4b5c;
+    animation: fadeOut 2s ease 2s forwards;
+  }
+
+  @keyframes fadeOut {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+</style>
+
+<script>
+  // Hide landing page after animation ends
+  setTimeout(() => {
+    document.getElementById("landing").style.display = "none";
+  }, 4000);
+</script>
+<!-- 🌸 End of Landing Page Section -->
+
 </body>
 </html>
+  <style>
+	body {
+	  background: url('pexels-nietjuhart-776632.jpg') no-repeat center center fixed;
+	  background-size: cover;
+	}
+  </style>
