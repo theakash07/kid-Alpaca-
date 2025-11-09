@@ -87,19 +87,13 @@ body::before {
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 55;
 
-// 💖 Start timer from yesterday 16:30 local time (same behaviour you had)
-// 2025-11-08 16:30 local time
-var together = new Date(2025, 10, 6, 16, 30, 0); // month is zero-based: 10 = November
-// For dynamic date (yesterday 16:30), uncomment below and comment the above line
-//var together = new Date();
-together.setDate(together.getDate() - 1);
-together.setHours(16, 30, 0, 0);
-
-// Helper: return a fresh copy of the base date so timeElapse can't mutate it.
+// 💖 FIXED START DATE SCRIPT: 
+// The timer starts from November 6, 2025, at 18:30:00 (6:30 PM) local time.
+// Note: Month is 0-indexed (10 = November)
+var together = new Date(2025, 10, 5, 18, 30, 0); 
 function copyDate(d) {
     return new Date(d.getTime());
 }
-
 if (!document.createElement('canvas').getContext) {
     var msg = document.createElement("div");
     msg.id = "errorMsg";
@@ -113,17 +107,16 @@ if (!document.createElement('canvas').getContext) {
     setTimeout(function () {
         startHeartAnimation();
     }, 5000);
-
-    // use copies instead of the original object
+// use copies instead of the original object
     timeElapse(copyDate(together));
     setInterval(function () {
         timeElapse(copyDate(together));
     }, 500);
-
-    adjustCodePosition();
+adjustCodePosition();
     $("#code").typewriter();
 }
 </script>
+
 
 
 <!-- 🌸 Landing Page Section -->
@@ -173,3 +166,4 @@ if (!document.createElement('canvas').getContext) {
 	  background-size: cover;
 	}
   </style>
+
