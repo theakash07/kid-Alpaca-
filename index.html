@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+				
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
@@ -87,38 +90,48 @@ body::before {
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 55;
 
-// 💖 Start timer from yesterday 16:30 local time
-var together = new Date();
+// 💖 Start timer from yesterday 16:30 local time (same behaviour you had)
+// 2025-11-08 16:30 local time
+var together = new Date(2025, 10, 6, 17, 30, 0); // month is zero-based: 10 = November
+// For dynamic date (yesterday 16:30), uncomment below and comment the above line
+//var together = new Date();
 together.setDate(together.getDate() - 1);
 together.setHours(16, 30, 0, 0);
 
+// Helper: return a fresh copy of the base date so timeElapse can't mutate it.
+function copyDate(d) {
+    return new Date(d.getTime());
+}
+
 if (!document.createElement('canvas').getContext) {
-	var msg = document.createElement("div");
-	msg.id = "errorMsg";
-	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
-	document.body.appendChild(msg);
-	$("#code").css("display", "none")
-	$("#copyright").css("position", "absolute");
-	$("#copyright").css("bottom", "10px");
-	document.execCommand("stop");
+    var msg = document.createElement("div");
+    msg.id = "errorMsg";
+    msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+    document.body.appendChild(msg);
+    $("#code").css("display", "none")
+    $("#copyright").css("position", "absolute");
+    $("#copyright").css("bottom", "10px");
+    document.execCommand("stop");
 } else {
-	setTimeout(function () {
-		startHeartAnimation();
-	}, 5000);
+    setTimeout(function () {
+        startHeartAnimation();
+    }, 5000);
 
-	timeElapse(together);
-	setInterval(function () {
-		timeElapse(together);
-	}, 500);
+    // use copies instead of the original object
+    timeElapse(copyDate(together));
+    setInterval(function () {
+        timeElapse(copyDate(together));
+    }, 500);
 
-	adjustCodePosition();
-	$("#code").typewriter();
+    adjustCodePosition();
+    $("#code").typewriter();
 }
 </script>
 
+
 <!-- 🌸 Landing Page Section -->
 <div id="landing">
-  <h1>Hii! 🦙 Alpaca 👩🏻‍❤️‍🧑🏻 </h1>
+  <h1>Hii! 🦙 Alpaca  👩🏻‍❤️‍🧑🏻 </h1>
 </div>
 
 <style>
